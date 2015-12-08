@@ -11,7 +11,7 @@ namespace Labb5_Ovningar
         {
             Uppgift1();
 
-            "hej"
+            Console.WriteLine("hej");
         }
 
         private static void Uppgift1()
