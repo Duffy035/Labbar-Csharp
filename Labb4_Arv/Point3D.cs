@@ -20,17 +20,18 @@ namespace Labb4_Arv
 
         public Point3D()
         {
-            base.X = X;
-            base.Y = Y;
+            //base.X = X;
+            //base.Y = Y;
             Z = 300;
         }
         public Point3D(int x, int y, int z)
         {
-            X = x;
-            Y = y;
+            //X = x;
+            //Y = y;
             Z = z;
         }
 
-        public override string ToString() => $"X är: {X}, Y är: {Y}, Z är: {Z}";
+        //public override string ToString() => $"X är: {X}, Y är: {Y}, Z är: {Z}";
+        public override string ToString() => $"Z är: {Z}, {base.ToString()}";
     }
 }

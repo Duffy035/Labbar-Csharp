@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Labb3;
 
 namespace Labb4_Arv
 {
@@ -15,7 +16,13 @@ namespace Labb4_Arv
             //Uppgift3();
             //Uppgift4();
 
+            Car car = new Car();
+            Console.WriteLine(car);
 
+            SUV suv = new SUV(); //här..
+
+            Console.ReadLine();
+            
         }
 
         private static void Uppgift4()

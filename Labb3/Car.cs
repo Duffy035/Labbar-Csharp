@@ -11,6 +11,7 @@ namespace Labb3
         private string color;
         private Engine engine;
 
+
         public void SetColor(string color)
         {
             this.color = color;
@@ -26,6 +27,11 @@ namespace Labb3
         public Engine GetEngine()
         {
             return engine;
+        }
+
+        public void Drive()
+        {
+            Console.WriteLine("brum brum");
         }
     }
 }
