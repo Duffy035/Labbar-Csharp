@@ -1,0 +1,89 @@
+﻿1. Vad innebär det att instantiera en typ?
+Det innebär att man skapar ett objekt från datatypens mall (name, structure, behaviour och constrains).
+
+-All data i ett C#-program är en instans av någon datatyp som förses via språket (egendefinierade, BCL eller av ngt annat bibliotek).
+
+ -----------------------------------
+
+2. En instans av en typ kan även kallas något annat, vad?
+Det skapade objektet kallas antingen OBJEKT eller INSTANS av datatypen.
+
+ -----------------------------------
+
+3. C# skiljer på värdetyper och referenstyper. Placera följande typer i rätt kategori: int, string, bool, double, object, char
+
+int - värdetyp
+string - referenstyp 
+bool - värdetyp
+double - värdetyp
+object - referenstyp
+char - värdetyp 
+
+ -----------------------------------
+
+4. Att skapa program i C# handlar ytterst sett om att definiera egna datatyper, som i sin tur använder andra typer. Nämn ett par olika sorters datatyper som kan skapas, både referenstyper och värdetyper.
+
+VÄRDETYPER: stack
+struct, enum 
+
+REFERENSTYPER: heap
+class, interface, delegate, array
+
+ -----------------------------------
+
+5. Vad innebär stack och heap för ett C#-program?
+
+STACKEN:
+När ett program körs, måste datan för programmet lagras i datorns RAM-minne. Mängden minne som krävs beror på datatypen.
+
+-Stacken agerar som 'last-in', 'first-out' (LIFO) dvs. data byggs uppifrån och nedåt på minnet. Stacken lagrar flera olika datatyper:
+* värdet av vissa datatyper och variabler
+* programmets nuvarande runtime-miljö
+* de parametrar som skickats till metoder
+
+* data kan tillföras eller plockas bort från stacken - men enbart lager för lager (LIFO)
+* Att placera dataföremål kallas att pusha (.push) föremålet till stacken
+* Att ta bort dataföremål kallas att popa (.pop) föremålet från stacken
+
+Systemet sköter stackmanupulationen åt oss.
+
+ HEAPEN:
+ Heapen är ett område på RAM-minnet där delar av minnet allokerats för att lagra vissa typer av dataobjekt. Tillskillnad från stacken kan data tillföras och plockas bort i valfri ordning.
+
+ Ett program kan lagra föremål i heapen, men kan inte ta bort dem - detta sköter CLR:ens garbage collector (GB). GB:n tar bort objekt ur heapen när koden inte längre behöver tillgång till dem.
+
+ -----------------------------------
+
+6. Vad är en variabel? 
+
+En variabel är ett namn som representerar lagrad data i minnet under exekveringen av ett program. I C# finns fyra olika variabeltyper: 
+
+-Lokal variabel: Lagrar temporär data inom en metods scope. INTE en del av en type.
+-Fält: Lagrar data associerad med en type eller instans av en type. Del i en type.
+-Parameter: En temporär variabel som används för att skicka data från en metod till en annan. INTE medlem i type.
+-Arrayelement: En medlem av en följdkollektion, vanligtvis med homogena dataobjekt. Kan vara lokal, eller del av en type.
+
+En variabel måste deklareras innan den kan användas. Deklarationen definierar variabeln och gör två saker:
+
+-Ger variabeln ett namn och associerar en typ med den. 
+-Tillåter kompileraren att fördela minne för variabeln.
+
+Hur skapas en variabel? 
+-----------------------
+Man måste deklarera en typ och ett namn. Ex. int number (int=type, number=name).
+
+
+
+Vad innebär det att deklarera en variabel? 
+-----------------------------------------
+Förutom att deklarera en variabels typ och namn, finns valet att använda deklarationen för initiera dess minne till ett visst värde - en variabel initierare består av ett = tecken följt av det initierade värdet. Ex: int tal;
+
+initeras inte variablen med ett värde är den per default 'undefined', och kan inte användas förens ett värde satts - annars får vi ett kompilerings fel.
+
+Vad menas med att tilldela en variabel ett värde?
+-------------------------------------------------
+Man INITIERAR variabeln med ett värde.
+Ex: tal=9;
+
+ -------------------------------------------------------------
+

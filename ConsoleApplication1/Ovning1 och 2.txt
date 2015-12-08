@@ -1,0 +1,138 @@
+﻿ÖVNING 1:
+
+1. CLR står för Common Language Runtime, och används som exekveringsmiljö vid körning av kod. När koden körs tar CLR hand om: 
+
+*minneshantering och 'garbage' kod (tar bort objects ur datorns minne, som programmet inte längre behöver) 
+*kör verifikation på skadlig kod
+*sköter kodexekvering, trådledning och undantagshantering
+
+ Ramverket .NET består av tre komponeneter: Programmeringsverktyg, Base Class Library(BCL) och Common Language Runtime (CLR).
+
+ ----------------------------------------------------
+
+2. Base Class Library, ett stort klassbibliotek som används av .NET. Användaren ar har tillgång till detta och kan använda bilioteken till de program som utvecklas. Några kategorier är:
+
+*Generell basklass - Klasser som ger kraftfulla verktyg för programmering såsom fil- och stringmanupilation, säkerhet en kryptering
+*Klasskollektion - Klasser som implementerar listor, ordböcker, hash tabeller och bitarrayer.
+*Trådning och synkroniserade klasser - Klasser för att bygga multithreading program.
+*XML klasser - Klasser för att skapa, läsa och manipulera XML-dokument
+
+----------------------------------------------------
+
+3. (Compile time) Kompileraren för .NET-ramverket tar källkodfilen och skapar en output fil - en assembly. En assembly är antingen:
+
+* en exe-fil eller en dll-fil
+* Koden är inte maskinkod (bundet till en viss hårdvara), istället är det den mellanliggande CIL:en
+
+Assemblyn innehåller bl.a: 
+
+*programmets CIL
+* metadata om typerna som används i programmet
+*metadata om referenser till andra assemblys
+
+----------------------------------------------------
+
+4. CIL står för Common Intermediate Language
+
+----------------------------------------------------
+
+5. (Run time) Programmets CIL kompileras inte till CIL-kod förens det kallats för att göra det! Vid körning utför CLR:en följande steg:
+
+*Den kontrollerar assemblyns säkerhetskaraktäristiker
+* Den frigör utrymme i minnet
+* Den sänder assemblyns körbara kod till JIT (Just-In-Time) kompilatorn, som kompilerar delar av sin egna inbyggda kod.
+
+Den körbara koden i assemblyn kompileras av JIT:s kompilator vid behov, sedan cachas den ifall den skulle behövas senare i samma program. Denna process innebär att kod som inte kallas på vid exekvering inte kompileras till inbyggd kod, men den som kallas kan bara kompileras en gång.
+
+När CIL:en kompilerats till inbyggd kod, hanteras den av CLR vid körning (tar hand om ex. minne, kontrollerar arraygränser, kontrollerar parametertyper, och sköter undantagsfall). 
+
+----------------------------------------------------
+
+6. För- och nackdel med att köra .NET-program i runtime-miljö: 
+
+Fördel: Automatisk garbage collection - tar bort object ur minnet som programmet inte behöver.
+		Säkerhet och autentisering.
+		Utökad funktionalitet till ex. webb- och datatjänster
+Nackdel: Inga? Innan CLI var det ett problem eftersom det inte fanns en enhetlig standard (fanns egna definitioner beroende på plattform och språk) för olika			 programmeringsspråk. CLI knyter ihop alla komponenter av .NET-ramverket i ett stort gemensamt system. >>>>> Freddie: Det går långsamt
+
+----------------------------------------------------
+
+ÖVNING 2:
+
+1. Vad är en identifierare?
+
+Det är strängar av bokstäver osm används för att namnge variabler, metoder, parametrar osv. Man kan skapa självdokumneterande identifierare genom att konkatenera meningsfulla ord till ett enda beskrivande namn. För det används uppercase och lowercase skrift (ex. UpperCase). 
+----------------------------------------------------
+
+2. Hur får en identifierare se ut?
+Det finns regler för hur en identifierare får deklareras - Vissa tecken är inte tillåtna vid särsklida positioner på identifieraren:
+
+* alfabetiska (a-z och A-Z) och understreck (_) kan skrivas på alla positioner.
+* Nummer tillåts inte på första positionen, men på alla andra ställen.
+* @ tillåts bara på första positionen (används sällan!).
+
+Identifierare är även case sensitive - myMethod och MyMethod hade ex. varit två olika identifierare.  
+
+----------------------------------------------------
+
+3. Vad är camel case och pascal case?
+Camel case innebär att varje ord vi skriver börjar med liten bokstav följt av versal på varje nytt ord - ex. myMethod, thisArray, functionLoop osv.
+Används främst för variabler och fält. 
+
+Pascal case innebär att varje nytt ord får en stor bokstav - ex. MyMethod, ThisArray, FunctionLoop osv.
+Används för namespace, class, metoder, enum, struktor, interface och propertys. 
+
+----------------------------------------------------
+
+4. Vad är nyckelord?
+Nyckelord är de karaktärssträngstecken ("character string tokens") som används för att definiera C# språket. Nyckelord kan inte används som variablenamn eller någon annan form av identifierare såvida de inte har @ framför. 
+
+Alla C# nyckelord består av lowercase namn.
+
+Kontextuella nyckelord är identifierare som agerar nyckelord i särskilda språk constructors. Där har de särskild mening. De kontextuella nyckelorden kan användas som identifierare i andra delar av en kod.
+
+----------------------------------------------------
+
+5. Vad innebär det att C# är case sensitive?
+Det innebär att det som deklareras kommer tolkas olika utifrån hur det har skrivits. Det blir skillnader i programmets beteende om man deklarar med olika case-typer. 
+Med case sensitivity möjliggörs konventioner som använder case (skiftlägen) till att separata klassnamn och instanser.
+
+----------------------------------------------------
+
+6. Kompilatorn struntar i s.k. whitespace, men för tydlighetens skulle bör alltid källkod formatteras för maximal läsbarhet. Nämn ett par olika typer av whitespace:
+
+Exempel på olika typer:
+*Space
+*Tab
+*New line* (\r\n)
+*Carriage return
+
+Whitespace ignoreras av kompilatorn, och används för läsbarhetens skull, dvs. man undviker kontantinering.
+
+----------------------------------------------------
+
+7. Vilket tecken används för att avsluta ("terminera") ett uttryck?
+Ett semicolon - ;
+----------------------------------------------------
+
+8. Flera uttryck kan grupperas tillsammans till ett s.k. block, t.ex. för att utföras tillsammans om ett villkor är uppfyllt. Hur grupperas uttryck?
+
+Ett block är en sekvens av inga eller flera statements som omges av en matchande måsvinge (ex. { -ett statement- } ). Blocket agerar som ett syntaktiskt statement. Man kan skapa ett block genom att innesluta ett statement i matchande måsvingar - en som öppnar och en som stänger.
+
+Att tänka på vid blockhantering: 
+
+* Man kan använda blockhantering när syntaxen kräver ett statement, men handlingen du vill utföra kräver mer än ett statement
+* Vissa program constructors kräver block. Här kan man inte ersätta ett statement för blocket - mao måste blocket användas.
+* Ett block avslutas inte med termineringsuttryck - semicolon.
+
+----------------------------------------------------
+
+9. När bör källkod kommenteras? Vilka olika kommentarstyper finns, och hur anges de?
+
+Egentligen aldrig, då koden ska vara självförklarande. Men om de används finns följande sätt:
+
+///Ghostscript///
+/*Flerrads-kommentar*/
+//En rads-kommentar
+
+----------------------------------------------------
